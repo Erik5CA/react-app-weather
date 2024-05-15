@@ -1,0 +1,21 @@
+.location {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.location__icon {
+  width: 15px;
+  height: 15px;
+}
+
+.location__loc {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.location__date {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.753);
+}
