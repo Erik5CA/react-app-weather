@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  background: rgb(61, 231, 229);
+  background: linear-gradient(
+    0deg,
+    rgb(55, 187, 185) 46%,
+    rgb(118, 0, 253) 100%
+  );
+  color: white;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  border-bottom: 1px solid white;
+  border-top: 1px solid rgba(255, 255, 255, 0.596);
+  padding: 1em;
+}
+
+.container__title {
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.container__item-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em;
+  border-right: 1px solid rgba(255, 255, 255, 0.562);
+}
+
+.container__item-hour {
+  text-transform: uppercase;
+}
+
+.container__item-hum {
+  font-size: 0.8em;
+  font-weight: 400;
+  color: #ffffffd5;
+}
+
+.container__item-img {
+  width: 50px;
+}
+
+.container__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.container__item--gap {
+  gap: 0;
+}
+
+.container__icon {
+  width: 35px;
+  height: 35px;
+}
+
+.container__icon-sm {
+  width: 20px;
+  height: 20px;
+}
+
+.container__info {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.61);
+  padding: 0.5em 0;
+}
+
+.container__info--border {
+  border: none;
+}
+
+.container__info-title {
+  text-transform: capitalize;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+.container__info-value {
+  font-size: 0.9em;
+  font-weight: 400;
+}
