@@ -12,12 +12,14 @@ export type Weather = {
   wind: Wind;
   rain: Rain;
   clouds: Clouds;
+  pop: number;
   dt: number;
   sys: Sys;
   timezone: number;
   id: number;
   name: string;
   cod: number;
+  dt_txt: string;
 };
 
 export type Clouds = {
