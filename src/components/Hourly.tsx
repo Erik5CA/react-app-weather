@@ -1,44 +1,23 @@
+import { Weather } from "../types";
 import HourlyCol from "./HourlyCol";
 
-const hours = [
-  {
-    hour: "8 am",
-    img: "https://openweathermap.org/img/wn/10d@2x.png",
-    humidity: "24%",
-    temp: "27°",
-  },
-  {
-    hour: "9 am",
-    img: "https://openweathermap.org/img/wn/10d@2x.png",
-    humidity: "24%",
-    temp: "27°",
-  },
-  {
-    hour: "10 am",
-    img: "https://openweathermap.org/img/wn/10d@2x.png",
-    humidity: "24%",
-    temp: "27°",
-  },
-  {
-    hour: "10 am",
-    img: "https://openweathermap.org/img/wn/10d@2x.png",
-    humidity: "24%",
-    temp: "27°",
-  },
-];
+type Props = {
+  hourlyWeather: Weather[];
+};
 
-function Hourly() {
+function Hourly({ hourlyWeather }: Props) {
   return (
     <div className="container">
       <h3 className="container__title">Hourly</h3>
-      <div className="container__item container__item--gap">
-        {hours.map((hour) => (
+      <div className="container__item container__item--gapcol">
+        {hourlyWeather?.map((hour, index) => (
           <HourlyCol
-            key={hour.hour}
-            hour={hour.hour}
-            icon={hour.img}
-            humidity={hour.humidity}
-            temp={hour.temp}
+            key={hour.dt}
+            hour={hour.dt}
+            icon={hour.weather[0].icon}
+            humidity={hour.pop * 100}
+            temp={hour.main.temp_max}
+            bl={index + 1 === 1 || index + 1 === 5 ? true : false}
           />
         ))}
       </div>
