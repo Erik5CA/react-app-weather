@@ -1,22 +1,35 @@
-import { HumidityIcon } from "./Icons";
+import { formatDate } from "../utils/formatDate";
+import { RainIcon } from "./Icons";
 
 type Props = {
-  humidity: string;
-  temp: string;
-  hour: string;
+  humidity: number;
+  temp: number;
+  hour: number;
   icon: string;
+  bl?: boolean;
 };
 
-function HourlyCol({ hour, humidity, icon, temp }: Props) {
+const configHour: Intl.DateTimeFormatOptions = {
+  hour: "numeric",
+  hour12: true,
+};
+
+function HourlyCol({ hour, humidity, icon, temp, bl }: Props) {
+  const date = new Date(hour * 1000);
+  const border = bl ? "bl" : "";
   return (
-    <div className="container__item-col">
-      <p className="container__item-hour">{hour}</p>
-      <img className="container__item-img" src={icon} alt="" />
-      <div className="container__item container__item--gap">
-        <HumidityIcon cla={false} />
-        <p className="container__item-hum">{humidity}</p>
+    <div className={`container__item-col ${border}`}>
+      <p className="container__item-hour">{formatDate(date, configHour)}</p>
+      <img
+        className="container__item-img"
+        src={`https://openweathermap.org/img/wn/${icon}@2x.png`}
+        alt=""
+      />
+      <div className="container__item container__item--flex container__item--gap0">
+        <RainIcon />
+        <p className="container__item-hum">{humidity}%</p>
       </div>
-      <p>{temp}</p>
+      <p>{temp.toFixed(0)}°</p>
     </div>
   );
 }
