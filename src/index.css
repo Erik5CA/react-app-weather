@@ -21,12 +21,13 @@ body {
   margin: 0;
   display: flex;
   min-width: 320px;
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: hidden;
   font-family: "Montserrat", sans-serif;
   background: rgb(61, 231, 229);
   background: linear-gradient(
     0deg,
-    rgb(55, 187, 185) 46%,
+    rgb(55, 187, 185) 30%,
     rgb(118, 0, 253) 100%
   );
   color: white;
@@ -35,8 +36,10 @@ body {
 .container {
   display: flex;
   width: 100%;
+  max-width: 425px;
+  margin: 0 auto;
   flex-direction: column;
-  border-bottom: 1px solid white;
+  /* border-bottom: 1px solid white; */
   border-top: 1px solid rgba(255, 255, 255, 0.596);
   padding: 1em;
 }
@@ -45,15 +48,6 @@ body {
   text-transform: uppercase;
   font-size: 1em;
   font-weight: 500;
-}
-
-.container__item-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5em;
-  padding: 0.5em;
-  border-right: 1px solid rgba(255, 255, 255, 0.562);
 }
 
 .container__item-hour {
@@ -68,20 +62,78 @@ body {
 
 .container__item-img {
   width: 50px;
+  animation: gronw 0.4s ease-in-out forwards;
 }
 
 .container__item {
-  display: flex;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   align-items: center;
-  gap: 0.5em;
+  /* flex-wrap: wrap; */
+  /* gap: 0.5em; */
 }
-.container__item--gap {
+
+.container__item-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 0.5em; */
+  /* padding: 0.5em; */
+  border-right: 1px solid rgba(255, 255, 255, 0.562);
+  /* border-left: 1px solid rgba(255, 255, 255, 0.562); */
+}
+
+.bl {
+  border-left: 1px solid rgba(255, 255, 255, 0.562);
+}
+
+.container__item--flex {
+  display: flex;
+  justify-content: center;
+}
+
+.container__item--gapcol {
+  gap: 0.5em 0;
+}
+
+.container__item--gap0 {
   gap: 0;
 }
 
+.container__item--days {
+  font-size: 0.8em;
+  gap: 0.5em;
+  margin: 0.5em 0;
+}
+
+.container__daily {
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.container__daily:hover {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.144);
+}
+
+.container__daily-sel {
+  border-bottom: 1px solid white;
+}
+
 .container__icon {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
+  animation: gronw 0.4s ease-in-out forwards;
+}
+
+@keyframes gronw {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .container__icon-sm {
