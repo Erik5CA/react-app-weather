@@ -25,6 +25,11 @@ function Daily({ dailyList }: Props) {
     setSelect(index);
   };
 
+  const nextDay = (index: number) => {
+    const indexDay = index + today > 6 ? index + today - 7 : index + today;
+    return indexDay;
+  };
+
   return (
     <div className="container">
       <h3 className="container__title">Daily</h3>
@@ -41,7 +46,7 @@ function Daily({ dailyList }: Props) {
                 }
                 onClick={() => handleSelect(index)}
               >
-                {index + today !== 7 ? WEEK_DAYS[index + today] : WEEK_DAYS[0]}
+                {WEEK_DAYS[nextDay(index)]}
               </div>
             );
         })}
