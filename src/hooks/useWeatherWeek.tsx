@@ -8,19 +8,17 @@ export const useWeatherWeek = () => {
 
   useEffect(() => {
     const getWeatherWeek = async () => {
-      const { latitude, longitude, isErro } = await getCurrentLocation();
+      const { latitude, longitude } = await getCurrentLocation();
       // console.log({ latitude, longitude });
-      if (isErro) {
-        throw new Error("We couldn´t get your location.");
-      } else {
-        const newLocalitacion = {
-          latitude,
-          longitude,
-        };
-        const newWeather = await fetchWeatherWeek(newLocalitacion);
-        setWeatherWeek(newWeather);
-      }
+
+      const newLocalitacion = {
+        latitude,
+        longitude,
+      };
+      const newWeather = await fetchWeatherWeek(newLocalitacion);
+      setWeatherWeek(newWeather);
     };
+
     getWeatherWeek();
   }, []);
 
