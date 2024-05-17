@@ -18,13 +18,35 @@ const WEEK_DAYS = [
 const date = new Date();
 const today = date.getDay();
 
+/**
+ * Daily component to display daily weather forecast.
+ *
+ * @param dailyList - An array of Weather objects, where each object represents a day's weather forecast.
+ * @returns A React component that displays daily weather forecast.
+ */
 function Daily({ dailyList }: Props) {
+  /**
+   * State variable to keep track of the selected day.
+   * Initially, the second day (index 1) is selected.
+   */
   const [select, setSelect] = useState(1);
 
+  /**
+   * Function to handle day selection.
+   * Updates the `select` state variable with the selected day's index.
+   *
+   * @param index - The index of the selected day.
+   */
   const handleSelect = (index: number) => {
     setSelect(index);
   };
 
+  /**
+   * Function to calculate the index of the day based on the current date.
+   *
+   * @param index - The index of the day.
+   * @returns The index of the day based on the current date.
+   */
   const nextDay = (index: number) => {
     const indexDay = index + today > 6 ? index + today - 7 : index + today;
     return indexDay;
