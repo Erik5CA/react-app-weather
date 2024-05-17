@@ -9,9 +9,11 @@ type Props = {
 function LocationDate({ name }: Props) {
   const date = new Date();
   return (
-    <div className="location">
-      <LocationIcon />
-      <p className="location__loc">{name}</p>
+    <div className="location" id="location">
+      <div className="location__item">
+        <LocationIcon />
+        <p className="location__loc">{name}</p>
+      </div>
       <p className="location__date">{formatDate(date)}</p>
     </div>
   );
