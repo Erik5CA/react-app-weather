@@ -1,6 +1,6 @@
 import { Weather } from "../types";
 
-export function formatWeekList(rawData: Weather[]) {
+export function formatWeekList(rawData: Weather[] | undefined) {
   let dayList: Weather[] = [];
   const weekList: Weather[][] = [];
   rawData?.forEach((item, index) => {
