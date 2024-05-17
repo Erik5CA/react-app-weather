@@ -3,11 +3,25 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: rgb(115, 0, 250);
+  padding: 0.7em 0;
+  z-index: 10;
+}
+
+.location__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  animation: adjust-info linear both;
 }
 
 .location__icon {
   width: 15px;
   height: 15px;
+  animation: hidden-icon linear both;
 }
 
 .location__loc {
@@ -18,4 +32,40 @@
 .location__date {
   font-size: 0.8em;
   color: rgba(255, 255, 255, 0.753);
+  animation: hidden-date linear both;
+}
+
+.location__date {
+  animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation-timeline: scroll();
+  animation-range: 0 80px;
+}
+.location__item,
+.location__icon {
+  animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+  animation-timeline: scroll();
+  animation-range: 0 110px;
+}
+
+@keyframes hidden-date {
+  to {
+    opacity: 0;
+    height: 0;
+  }
+}
+
+@keyframes hidden-icon {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes adjust-info {
+  to {
+    flex-direction: row;
+    gap: 0.5em;
+  }
 }
