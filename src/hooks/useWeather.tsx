@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Weather } from "../types.d";
-import fetchWeather from "../services/fetchWeather";
+import { fetchWeather } from "../services/fetchWeather";
 
-export const useWeather = (
-  isWeekle: boolean
-): Weather | Weather[] | undefined => {
-  const [weather, setWeather] = useState<Weather | Weather[]>();
+export const useWeather = () => {
+  const [weather, setWeather] = useState<Weather>();
+  const [updateWeather, setUpdateWeather] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -14,19 +14,15 @@ export const useWeather = (
         longitud: position.coords.longitude,
       };
       const getWeather = async () => {
-        if (isWeekle) {
-          const newWeather = await fetchWeather(newLocalitacion, true);
-          setWeather(newWeather);
-        } else {
-          const newWeather = await fetchWeather(newLocalitacion);
-          setWeather(newWeather);
-        }
+        setLoading(true);
+        const newWeather = await fetchWeather(newLocalitacion);
+        setWeather(newWeather);
+        setUpdateWeather(false);
+        setLoading(false);
       };
       getWeather();
     });
-  }, []);
-  if (isWeekle) {
-    return weather as Weather[];
-  }
-  return weather as Weather;
+  }, [updateWeather]);
+
+  return { weather, setUpdateWeather, updateWeather, loading };
 };
