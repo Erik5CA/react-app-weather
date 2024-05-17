@@ -53,7 +53,7 @@ function App() {
 
   return (
     <div className="app" ref={ref}>
-      {!loading && !error && weather ? (
+      {!loading && !error && weather && (
         <>
           <LocationDate name={weather?.name} />
           <div className={loading ? "main" : "main main__animation"} id="main">
@@ -73,12 +73,13 @@ function App() {
             scrollTop={scrollTop}
           />
         </>
-      ) : (
+      )}
+
+      {loading && !error && weather && (
         <div className="main main--heigth">
           <RefreshIcon cls="main__icon-loading" />
         </div>
       )}
-
       {loading && !error && !weather && (
         <div className="main main--heigth">
           <RefreshIcon cls="main__icon-loading" />
