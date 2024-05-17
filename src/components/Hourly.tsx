@@ -5,6 +5,12 @@ type Props = {
   hourlyWeather: Weather[];
 };
 
+/**
+ * This component renders the hourly weather forecast.
+ *
+ * @param hourlyWeather - An array of Weather objects representing the hourly forecast.
+ * @returns A React component that displays the hourly weather forecast.
+ */
 function Hourly({ hourlyWeather }: Props) {
   return (
     <div className="container">

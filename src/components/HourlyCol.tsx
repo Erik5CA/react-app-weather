@@ -14,8 +14,22 @@ const configHour: Intl.DateTimeFormatOptions = {
   hour12: true,
 };
 
+/**
+ * A component to display hourly weather information.
+ *
+ * @param hour - The timestamp of the weather data in Unix format.
+ * @param humidity - The humidity percentage.
+ * @param icon - The weather icon code.
+ * @param temp - The temperature in Celsius.
+ * @param bl - A boolean flag to indicate if the component should have a bottom left border.
+ *
+ * @returns A React component displaying the hourly weather information.
+ */
 function HourlyCol({ hour, humidity, icon, temp, bl }: Props) {
+  // Convert the Unix timestamp to a Date object
   const date = new Date(hour * 1000);
+
+  // Determine the CSS class for the bottom left border based on the 'bl' prop
   const border = bl ? "bl" : "";
   return (
     <div className={`container__item-col ${border}`}>
