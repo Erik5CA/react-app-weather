@@ -9,7 +9,19 @@ type Props = {
   clouds: number | undefined;
 };
 
+/**
+ * A functional component that displays weather details.
+ *
+ * @param props - An object containing the weather details.
+ * @param props.humidity - The humidity percentage.
+ * @param props.pressure - The atmospheric pressure in hPa.
+ * @param props.wind - The wind speed in m/s.
+ * @param props.clouds - The cloud coverage percentage.
+ *
+ * @returns A React component that displays the weather details.
+ */
 function Details({ humidity, pressure, wind, clouds }: Props) {
+  // Define an object to hold the details literals
   const DETAILS = {
     humidity: {
       name: "humidity",
@@ -24,7 +36,7 @@ function Details({ humidity, pressure, wind, clouds }: Props) {
     wind: { name: "wind", value: `${wind} m/s`, icon: <WindIcon /> },
     clouds: { name: "clouds", value: `${clouds} %`, icon: <CloudIcon /> },
   };
-
+  // Render the weather details
   return (
     <div className="container">
       <h3 className="details__title">Details</h3>
