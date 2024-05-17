@@ -1,6 +1,6 @@
 export type Location = {
-  latitud: number;
-  longitud: number;
+  latitude: number | null;
+  longitude: number | null;
 };
 
 export type Weather = {
