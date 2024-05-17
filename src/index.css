@@ -35,7 +35,29 @@ body {
 
 .main {
   padding: 1em;
-  /* animation: down-to-up 0.8s ease-in-out forwards; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main--heigth {
+  height: 100%;
+}
+
+.main__text_error {
+  font-size: 2em;
+  font-weight: 400;
+}
+
+.main__icon-error {
+  width: 80px;
+}
+
+.main__icon-loading {
+  width: 80px;
+  animation: spin 0.8s ease-in-out infinite;
+  margin: 100px auto;
 }
 
 .main__animation {
@@ -57,7 +79,6 @@ body {
   max-width: 425px;
   margin: 0 auto;
   flex-direction: column;
-  /* border-bottom: 1px solid white; */
   border-top: 1px solid rgba(255, 255, 255, 0.596);
   padding: 1em;
 }
@@ -88,18 +109,13 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   align-items: center;
-  /* flex-wrap: wrap; */
-  /* gap: 0.5em; */
 }
 
 .container__item-col {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* gap: 0.5em; */
-  /* padding: 0.5em; */
   border-right: 1px solid rgba(255, 255, 255, 0.562);
-  /* border-left: 1px solid rgba(255, 255, 255, 0.562); */
 }
 
 .bl {
@@ -189,7 +205,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0.5em 1em;
-  /* border-top: 1px solid rgba(255, 255, 255, 0.562); */
   position: sticky;
   bottom: 0;
   background-color: rgb(55, 187, 185);
@@ -226,7 +241,6 @@ body {
   animation: spin 0.8s ease-in-out infinite;
 }
 
-/* animation to spin icon footer */
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -234,9 +248,4 @@ body {
   100% {
     transform: rotate(360deg);
   }
-}
-
-.main__icon-loading {
-  width: 80px;
-  animation: spin 0.8s ease-in-out infinite;
 }
