@@ -30,27 +30,23 @@
 }
 
 .location__date {
-  font-size: 0.8em;
+  font-size: 0.85em;
   color: rgba(255, 255, 255, 0.753);
   animation: hidden-date linear both;
 }
 
-.location__date {
-  animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  animation-timeline: scroll();
-  animation-range: 0 80px;
-}
 .location__item,
-.location__icon {
+.location__icon,
+.location__date {
   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
   animation-timeline: scroll();
-  animation-range: 0 110px;
+  animation-range: 0 150px;
 }
 
 @keyframes hidden-date {
   to {
     opacity: 0;
-    height: 0;
+    font-size: 0px;
   }
 }
 
