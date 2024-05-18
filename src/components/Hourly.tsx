@@ -21,7 +21,7 @@ function Hourly({ hourlyWeather }: Props) {
             key={hour.dt}
             hour={hour.dt}
             icon={hour.weather[0].icon}
-            humidity={hour.pop * 100}
+            humidity={Number((hour.pop * 100).toFixed(0))}
             temp={hour.main.temp_max}
             bl={index + 1 === 1 || index + 1 === 5 ? true : false}
           />
